@@ -1,2 +1,2 @@
-# blogBuster-client-Carlos
+# blogBuster-client-Dani
 Proyecto BlogBuster parte cliente DAW
