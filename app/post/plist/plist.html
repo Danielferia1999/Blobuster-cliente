@@ -1,0 +1,102 @@
+<ng-include src="'./app/post/menu.html'"></ng-include>
+<div class="container">
+
+  <br>
+  <div class="row">
+    <nav aria-label="Page navigation example  col">
+      <ul class="pagination">
+        <li class="page-item" ng-class="{'active':(paginaActual==p)}" ng-disabled="p == '...'"
+          ng-repeat="p in botonera track by $index">
+          <a class="page-link" ng-if="p != '...'" href="#!/post/plist/{{ p }}/{{ rppActual }}">{{ p }}</a>
+          <span class="page-link" ng-if="p == '...'">{{ p }}</span>
+        </li>
+      </ul>
+    </nav>
+    <div class="col-md-auto ml-auto">
+      <nav aria-label="Registros por página">
+        <ul class="pagination">
+          <li class="page-item" ng-class="{'active':(rppActual==10)}">
+            <a class="page-link" href="#!/post/plist/1/10">10</a>
+          </li>
+          <li class="page-item" ng-class="{'active':(rppActual==25)}">
+            <a class="page-link" href="#!/post/plist/1/25">25</a>
+          </li>
+          <li class="page-item" ng-class="{'active':(rppActual==50)}">
+            <a class="page-link" href="#!/post/plist/1/50">50</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col" class="text-center"><p>id</p>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/id/asc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-up"></i></i></a>
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/id/desc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-down"></i></i></a>
+            </div>
+          </th>
+          <th scope="col" class="text-center"><p>Titulo</p>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/titulo/asc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-up"></i></i></a>
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/titulo/desc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-down"></i></i></a>
+            </div>
+          </th>
+          <th scope="col" class="text-center"><p>Cuerpo</p>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/cuerpo/asc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-up"></i></i></a>
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/cuerpo/desc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-down"></i></i></a>
+            </div>
+          </th>
+          <th scope="col" class="text-center"><p>Etiquetas</p>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/etiquetas/asc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-up"></i></i></a>
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/etiquetas/desc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-down"></i></i></a>
+            </div>
+          </th>
+          <th scope="col" class="text-center"><p>Fecha publi.</p>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/fecha/asc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-up"></i></i></a>
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/fecha/desc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-down"></i></i></a>
+            </div>
+          </th>
+          <th scope="col" class="text-center"><p>Acciones</p></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="filas in tablaPosts">
+          <th scope="row" class="text-center">{{filas.id}}</th>
+          <td>{{filas.titulo}}</td>
+          <td>{{filas.cuerpo}}</td>
+          <td>{{filas.etiquetas}}</td>
+          <td>{{filas.fecha}}</td>
+          <td class="text-center">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <a href="#!/post/view/{{filas.id}}" class="btn btn-primary btn-sm" role="button" aria-pressed="true"><i
+                  class="fas fa-eye"></i></a>
+              <a href="#!/post/edit/{{filas.id}}" class="btn btn-primary btn-sm" role="button" aria-pressed="true"><i
+                  class="fas fa-edit"></i></a>
+              <a href="#!/post/remove/{{filas.id}}" class="btn btn-primary btn-sm" role="button" aria-pressed="true"><i
+                  class="fas fa-trash-alt"></i></a>
+            </div>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
